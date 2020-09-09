@@ -1,0 +1,32 @@
+<html>
+	<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<title>物质系统</title>
+	</head>
+	<body>
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"><span style="font-family:'Wingdings';font-size:12pt;color:#000000;">1</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#32;</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"><b>物质系统</b></span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#44;&#32;path&#58;&#32;我的资料\北大医疗信息技术有限公司\物质系统&#32;&#40;depth&#58;&#32;3&#41;</span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'Wingdings';font-size:12pt;color:#000000;">2</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#32;</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"><b>操作文档</b></span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#44;&#32;path&#58;&#32;我的资料\北大医疗信息技术有限公司\物质系统\操作文档&#32;&#40;depth&#58;&#32;4&#41;</span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+[<a href="file://C:\Users\Administrator\Desktop\物质系统 - files\物资管理系统操作说明0306.docx">物资管理系统操作说明0306.docx</a>]<br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'Wingdings';font-size:12pt;color:#000000;">2</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#32;</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"><b>低值耗材</b></span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#44;&#32;path&#58;&#32;我的资料\北大医疗信息技术有限公司\物质系统\低值耗材&#32;&#40;depth&#58;&#32;4&#41;</span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">&#45;&#45;低值耗材不关联价表</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">select&#32;&#32;count&#40;&#42;&#41;from&#32;&#32;bd_mm&#32;&#32;a&#32;&#32;where&#32;substr&#40;a&#46;sd_mmtp&#44;1&#44;1&#41;&#60;&#62;&#39;1&#39;</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">select&#32;&#32;&#42;</span><span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">&#32;from&#32;&#32;bd_mm&#32;&#32;a&#32;&#32;where&#32;</span><a href="http://a.name" target="_blank"><span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">a&#46;name</span></a><span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">&#32;&#61;&#39;输尿管导管F3华美&#39;&#59;</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#000000;">update&#32;bd_mm&#32;&#32;a&#32;set&#32;a&#46;id_srv&#61;&#39;~&#39;&#32;&#32;where&#32;a&#46;sd_mmtp&#32;in&#32;&#40;&#39;301&#39;&#44;&#39;303&#39;&#41;&#59;</span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'Wingdings';font-size:12pt;color:#000000;">2</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#32;</span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"><b>高值耗材</b></span><span style="font-family:'微软雅黑';font-size:12pt;color:#000000;">&#44;&#32;path&#58;&#32;我的资料\北大医疗信息技术有限公司\物质系统\高值耗材&#32;&#40;depth&#58;&#32;4&#41;</span><br />
+<span style="font-family:'微软雅黑';font-size:12pt;color:#000000;"></span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">&#45;&#45;高值耗材关联价表</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">1、关联上bd_mm&#44;bd_srv </span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">merge into  bd_mm a</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">  using  bd_srv b</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">  on &#40;a&#46;code&#61;b&#46;code and a&#46;name&#61;b&#46;name&#41;</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">  when matched then update set a&#46;id_srv&#61;b&#46;id_srv&#32;where&#32;a&#46;sd_mmtp&#32;in&#32;&#40;&#39;302&#39;&#41;；</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">把bd_mm表关联上bd_srv  ，前台耗材器械基本信息只关联出来服务项目</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">2、对应价表项目未关联上，我看到前台表单上对应价表也是对应的是中间表&#32;bd_mmpri_rel；</span><br />
+<span style="font-family:'微软雅黑';font-size:16pt;color:#282828;background:#FFFFFF;">3、采用生成主键，表数据bd_rmmpri_el做成</span><span style="font-family:'微软雅黑';font-size:16pt;color:#4D4D4D;background:#FFFFFF;">&#46;CSV格式最好，导入到数据库，参见</span><a href="http://https://blog.csdn.net/tingfengdehaijiao/article/details/52062750" target="_blank"><span style="font-family:'微软雅黑';font-size:16pt;color:#333333;background:#FFFFFF;">https&#58;&#47;&#47;blog&#46;csdn&#46;net&#47;tingfengdehaijiao&#47;article&#47;details&#47;52062750</span></a>		</span>	</body>
+</html>
